@@ -1,4 +1,4 @@
-package AgeCalculator.java; // Add this line
+package AgeCalculator.java;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,23 +13,27 @@ public class AgeCalculator extends JFrame {
         setTitle("Age Calculator");
         setSize(300, 150);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(null);
+
+        // Create a JPanel
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        add(panel);
 
         JLabel label = new JLabel("Enter Birth Year:");
         label.setBounds(20, 20, 120, 25);
-        add(label);
+        panel.add(label);
 
         birthYearField = new JTextField();
         birthYearField.setBounds(140, 20, 100, 25);
-        add(birthYearField);
+        panel.add(birthYearField);
 
         JButton button = new JButton("Calculate");
         button.setBounds(80, 50, 120, 30);
-        add(button);
+        panel.add(button);
 
         resultLabel = new JLabel("Your age will appear here.");
         resultLabel.setBounds(50, 90, 200, 25);
-        add(resultLabel);
+        panel.add(resultLabel);
 
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
