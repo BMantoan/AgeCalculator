@@ -19,18 +19,22 @@ public class AgeCalculator extends JFrame {
         panel.setLayout(null);
         add(panel);
 
+        // Create a JLabel
         JLabel label = new JLabel("Enter Birth Year:");
         label.setBounds(20, 20, 120, 25);
         panel.add(label);
 
+        // Create a TextField
         birthYearField = new JTextField();
         birthYearField.setBounds(140, 20, 100, 25);
         panel.add(birthYearField);
 
+        // Create a JButton
         JButton button = new JButton("Calculate");
         button.setBounds(80, 50, 120, 30);
         panel.add(button);
 
+        // Create a JLabel for results
         resultLabel = new JLabel("Your age will appear here.");
         resultLabel.setBounds(50, 90, 200, 25);
         panel.add(resultLabel);
@@ -49,8 +53,8 @@ public class AgeCalculator extends JFrame {
             int year = Integer.parseInt(birthYearField.getText());
             int age = LocalDate.now().getYear() - year;
             resultLabel.setText("You are " + age + " years old.");
-        } catch (Exception ex) {
-            resultLabel.setText("Invalid year!");
+        } catch (NumberFormatException ex) {
+            resultLabel.setText("Please enter a valid number for the year.");
         }
     }
 
@@ -58,3 +62,4 @@ public class AgeCalculator extends JFrame {
         new AgeCalculator();
     }
 }
+
